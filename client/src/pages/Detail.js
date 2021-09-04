@@ -14,9 +14,13 @@ import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
 import { useSelector, useDispatch } from 'react-redux';
 
+const selectCart = state => state.cart;
+const selectProducts = state => state.products;
+
 function Detail() {
   const dispatch = useDispatch();
-  const { products, cart } = useSelector();
+  const cart = useSelector(selectCart);
+    const products = useSelector(selectProducts);
 
   const { id } = useParams();
 
